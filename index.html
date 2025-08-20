@@ -359,7 +359,9 @@
                 socket.disconnect();
             }
 
-            socket = io(serverUrl);
+            socket = io(serverUrl, {
+                transports: ["websocket"]
+            });
 
             socket.on('connect', function() {
                 document.getElementById('connectionStatus').textContent = '接続済み';
